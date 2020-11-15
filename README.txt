@@ -7,12 +7,12 @@ Let's do this together.
         $ mkdir ~/bin/
         $ cd ~/bin
         $ pwd 
-        /home/565/an3208/bin 
+        /home/565/anh/bin 
     Copy this path 
 
     In your home directory (access with $ cd), run command: vim .bashrc  
     In .bashrc file, go to the end and type in: (you insert the path you copied here!)
-        export PATH=/home/565/an3208/bin:$PATH
+        export PATH=/home/565/anh/bin:$PATH
     Save and close .bashrc file
  
     To activate the .bashrc file, there are two ways:
@@ -33,30 +33,13 @@ In jobs.txt, put a name list of your job files with their absolute path.
 
 For examples:
     $ cat jobs.txt
-    /home/fifi/sn29/party/drink/alcohol.job
-    /home/fifi/sn29/party/drink/cider.job
-    /home/fifi/sn29/party/pot/weed.job
-    /home/fifi/sn29/party/pot/cocaine.job 
-    /home/fifi/sn29/party/pot/mushroom.job
+    /home/anh/sn29/molecule/benzene/job-1.job
+    /home/anh/sn29/molecule/benzene/job-2.job
+    /home/anh/sn29/molecule/aspirin/job-1.job
 
-To create jobs.txt, there are two ways:
-1 - Type the names in the file manually
-2 - Run this command in the parent directory of your jobs, eg. party/ folder: 
 
-ls -R . | awk '
-/:$/&&f{s=$0;f=0}
-/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}
-NF&&f{ print s"/"$0 }'
+Use command readlink -f *job to obtain the absolute paths of the jobb files.
 
-You will get these lines:
-    ./drink/alcohol.job
-    ./drink/cider.job
-    ./pot/weed.job
-    ./pot/cocaine.job
-    ./pot/mushroom.job
-
-The last thing you need to do is adding the rest of the path (/home/fifi/sn29) before these
-and save them into jobs.txt.
 
 * !!! Important: "jobs.txt" name is not allowed to change. It stays jobs.txt, and not e.g. coms.txt or anything else.
                  The list of jobs in this file can be changed, i.e. alcohol.job or alcohol.com
@@ -89,7 +72,4 @@ If you want to check it out, log in to your supercomputer with ssh.
         This command let you log in one of your screen session.
         [[pid.]tty[.host]] can be copied from the list of the "screen" sessions by running the command "screen -ls"
 
-If any problem comes up, please contact me: anh.nguyen3@monash.edu or Facebook Messenger.
-If you really like this tool, give me thumbs up or buy me a coffee :p 
-So, that's it.
 Happy submmitting jobs!
